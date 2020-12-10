@@ -5,15 +5,24 @@
 }
 
 .books-list {
-  width: 90%;
-  min-height: 200px;
+  width: 88%;
   margin: 10px auto;
   display: flex;
+  flex-wrap: wrap;
   border: solid 1px;
   .book {
-    width: 120px;
-    height: 180px;
-    margin: 10px;
+    width: 21%;
+    height: 360px;
+    margin: 2%;
+    padding: 20px;
     background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    h4 {
+      position: relative;
+      top: -20px;
+    }
   }
 }
