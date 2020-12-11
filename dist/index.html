@@ -5,12 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
   <link rel="stylesheet" href="/dist/css/style.css">
-  <script src="/js/script.js"></script>
 </head>
 <body>
-  <h1>The Library</h1>
-  <div id="booksList" class="books-list"></div>
-  <div class="whatever"></div>
+  <!-- Navbar -->
+  <section class="navbar">
+    <h1 class="logo">The Library</h1>
+    <div class="new-book">
+      <div id="new-book-btn" class="new-book-btn">
+        <h3>New Book</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Book Form -->
+  <div id="new-book-form" class="new-book-form-hidden">
+    <form id="newBookForm">
+      <div class="form-div">
+        <label for="name">Name of Book:</label>
+      </div>
+      <div class="form-div">
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="form-div">
+        <label for="author">Name of Author:</label>
+      </div>
+      <div class="form-div">
+        <input type="text" name="author" id="author">
+      </div>
+      <div class="form-div">
+        <label for="pages">Number of Pages:</label>
+      </div>
+      <div class="form-div">
+        <input type="number" name="pages" id="pages">
+      </div>
+      <div class="form-div">
+        <label for="isRead">Have you read it?</label>
+      </div>
+      <div class="form-div">
+        <input type="checkbox" name="isRead" id="isRead">
+      </div>
+      <div class="form-div">
+        <input type="submit" value="Add to Library">
+      </div>
+    </form>
+  </div>
+
+  <!-- Main Section -->
+  <section class="main">
+
+    <div id="booksList" class="books-list"></div>
+
+  </section>
 
   <script src="/js/script.js"></script>
 </body>
