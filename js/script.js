@@ -74,8 +74,8 @@ newBookBtn.addEventListener("click", displayNewBookForm);
 const submitNewBook = document.getElementById("newBookForm");
 submitNewBook.onsubmit = function(e) {
   e.preventDefault();
-  addBookToLibrary(new Book(submitNewBook.name.value, submitNewBook.author.value, submitNewBook.pages.value, submitNewBook.isRead.value));
-  console.log(submitNewBook.name.value);
+  addBookToLibrary(new Book(submitNewBook.name.value, submitNewBook.author.value, submitNewBook.pages.value, submitNewBook.isRead.checked));
+  // console.log(submitNewBook.isRead.checked);
   displayNewBookForm();
   displayBooks();
 };
