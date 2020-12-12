@@ -10,7 +10,18 @@ function Book(title, author, pages, isRead) {
 
 // function to add book into library
 function addBookToLibrary(book) {
-  myLibrary.push(book);
+  var isInLibrary = false;
+  myLibrary.forEach(element => {
+    if (element.title == book.title) {
+      isInLibrary = true;
+    }
+  });
+
+  if (!isInLibrary) {
+    myLibrary.push(book);
+  } else {
+    alert("The book is already in the library");
+  }
 }
 
 // function to display each book from library
@@ -55,10 +66,25 @@ function displayBooks() {
 // new book form display
 function displayNewBookForm() {
   newBookForm = document.getElementById("new-book-form");
+  // X to close the form
+  xBtn = document.getElementById("xBtn");
+  xBtn.addEventListener("click", displayNewBookForm);
+  // display the form when clicked
   if (newBookForm.classList.contains("new-book-form-hidden")) {
     newBookForm.classList.remove("new-book-form-hidden");  
     newBookForm.classList.add("new-book-form");
+
+    // submit 'add new book' form
+    submitNewBook = document.getElementById("newBookForm");
+    submitNewBook.onsubmit = function(e) {
+      e.preventDefault();
+      addBookToLibrary(new Book(submitNewBook.name.value, submitNewBook.author.value, submitNewBook.pages.value, submitNewBook.isRead.checked));
+      displayNewBookForm();
+      displayBooks();
+    };
+  // hide the form when clicked
   } else if (newBookForm.classList.contains("new-book-form")) {
+    // click new book button again to close the form
     newBookForm.classList.remove("new-book-form");  
     newBookForm.classList.add("new-book-form-hidden");
   }
@@ -69,16 +95,6 @@ function displayNewBookForm() {
 // show 'add new book' form
 var newBookBtn = document.getElementById("new-book-btn");
 newBookBtn.addEventListener("click", displayNewBookForm);
-
-// submit 'add new book' form
-const submitNewBook = document.getElementById("newBookForm");
-submitNewBook.onsubmit = function(e) {
-  e.preventDefault();
-  addBookToLibrary(new Book(submitNewBook.name.value, submitNewBook.author.value, submitNewBook.pages.value, submitNewBook.isRead.checked));
-  // console.log(submitNewBook.isRead.checked);
-  displayNewBookForm();
-  displayBooks();
-};
 
 // main
 addBookToLibrary(new Book("Hobbit", "J. R. R. Tolkien", 323, true));

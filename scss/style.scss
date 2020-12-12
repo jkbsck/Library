@@ -68,6 +68,35 @@ body {
       grid-column-end: 3;
     }
   }
+  .x-btn {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    background: radial-gradient(#999, #666);
+    top: 5px;
+    right: 5px;
+    border-radius: 35%;
+    cursor: pointer;
+    &-stick {
+      width: 20px;
+      height: 2px;
+      background: #eee;
+      border-radius: 2px;
+      position: relative;
+      top: 9px;
+      transform: rotate(45deg);
+      &::after {
+        content: "";
+        width: 20px;
+        height: 2px;
+        background: #eee;
+        border-radius: 2px;
+        position: relative;
+        display: block;
+        transform: rotate(90deg);
+      }
+    }
+  }
 }
 
 .new-book-form-hidden {
